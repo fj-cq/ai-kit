@@ -1,0 +1,42 @@
+name: 使用反馈
+description: 记录问题、结果偏差或使用体验（请先脱敏）
+title: "[反馈] "
+body:
+  - type: markdown
+    attributes:
+      value: "请勿提交个人隐私、公司材料、真实业务数据、密码或密钥。尚无正式能力时，也可以反馈文档问题。"
+  - type: input
+    id: capability
+    attributes:
+      label: 能力或文档路径与版本
+      placeholder: 例如 AI_GUIDE.md，提交 SHA 或版本号
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: AI 或执行环境
+      placeholder: AI 产品与模型、浏览器或软件版本；按问题需要填写
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤与最小脱敏输入
+      description: 请明确标识示例数据。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果或使用体验
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 已尝试的办法或改进建议
