@@ -1,0 +1,42 @@
+<!--
+  模板：垂直柱状图 (bar_vertical)
+  类型：P1 数据图表
+  适用：数据对比、趋势展示
+  纯 CSS 实现，无 JS 依赖
+-->
+<div class="chart-bar" style="
+  padding: 24px;
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, #eaeaea);
+  border-radius: var(--radius, 12px);
+">
+  <div style="font-weight: 600; font-size: 14px; color: var(--text-secondary, #666); margin-bottom: 20px; text-align: center;">
+    供应链韧性投资占比 (%)
+  </div>
+  <div style="display: flex; align-items: flex-end; justify-content: center; gap: 16px; height: 160px; padding: 0 12px;">
+    <!-- Bar 1 -->
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 60px;">
+      <div style="font-size: 12px; font-weight: 600; color: var(--text, #333); margin-bottom: 4px;">12%</div>
+      <div style="width: 100%; height: 38px; background: var(--tag-bg, #e0e0e0); border-radius: 4px 4px 0 0;"></div>
+      <div style="font-size: 11px; color: var(--text-secondary, #888); margin-top: 6px;">2022</div>
+    </div>
+    <!-- Bar 2 -->
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 60px;">
+      <div style="font-size: 12px; font-weight: 600; color: var(--text, #333); margin-bottom: 4px;">18%</div>
+      <div style="width: 100%; height: 57px; background: var(--tag-bg, #e0e0e0); border-radius: 4px 4px 0 0;"></div>
+      <div style="font-size: 11px; color: var(--text-secondary, #888); margin-top: 6px;">2023</div>
+    </div>
+    <!-- Bar 3 -->
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 60px;">
+      <div style="font-size: 12px; font-weight: 600; color: var(--text, #333); margin-bottom: 4px;">28%</div>
+      <div style="width: 100%; height: 89px; background: var(--tag-bg, #e0e0e0); border-radius: 4px 4px 0 0;"></div>
+      <div style="font-size: 11px; color: var(--text-secondary, #888); margin-top: 6px;">2024</div>
+    </div>
+    <!-- Bar 4 (accent) -->
+    <div style="display: flex; flex-direction: column; align-items: center; flex: 1; max-width: 60px;">
+      <div style="font-size: 12px; font-weight: 700; color: var(--accent, #6366f1); margin-bottom: 4px;">35%</div>
+      <div style="width: 100%; height: 112px; background: var(--accent, #6366f1); border-radius: 4px 4px 0 0;"></div>
+      <div style="font-size: 11px; color: var(--text-secondary, #888); margin-top: 6px;">2025</div>
+    </div>
+  </div>
+</div>

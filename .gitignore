@@ -14,3 +14,9 @@ dist/
 coverage/
 .idea/
 .vscode/
+
+# Runtime inputs and generated business artifacts are never release sources.
+/outputs/
+/work/
+/private-inputs/
+*.har

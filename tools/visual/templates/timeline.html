@@ -1,0 +1,52 @@
+<!--
+  模板：时间线 (timeline)
+  类型：P1 数据图表
+  适用：历史演变、发展阶段、里程碑
+  纯 CSS 实现
+-->
+<div class="chart-timeline" style="
+  padding: 24px;
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, #eaeaea);
+  border-radius: var(--radius, 12px);
+">
+  <div style="font-weight: 600; font-size: 14px; color: var(--text-secondary, #666); margin-bottom: 20px; text-align: center;">
+    供应链管理范式演进
+  </div>
+  <div style="position: relative; padding-left: 28px;">
+    <!-- Vertical line -->
+    <div style="position: absolute; left: 10px; top: 4px; bottom: 4px; width: 2px; background: var(--border, #e0e0e0);"></div>
+
+    <!-- Node 1 -->
+    <div style="position: relative; margin-bottom: 20px;">
+      <div style="position: absolute; left: -24px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--tag-bg, #e0e0e0); border: 2px solid var(--border, #ccc);"></div>
+      <div style="font-size: 11px; color: var(--text-secondary, #888); font-weight: 600; margin-bottom: 2px;">2000-2015</div>
+      <div style="font-size: 14px; font-weight: 700; color: var(--text, #333); margin-bottom: 2px;">精益生产时代</div>
+      <div style="font-size: 12px; color: var(--text-secondary, #888); line-height: 1.5;">JIT、零库存、单一供应商、成本最优</div>
+    </div>
+
+    <!-- Node 2 -->
+    <div style="position: relative; margin-bottom: 20px;">
+      <div style="position: absolute; left: -24px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--tag-bg, #e0e0e0); border: 2px solid var(--border, #ccc);"></div>
+      <div style="font-size: 11px; color: var(--text-secondary, #888); font-weight: 600; margin-bottom: 2px;">2016-2020</div>
+      <div style="font-size: 14px; font-weight: 700; color: var(--text, #333); margin-bottom: 2px;">风险对冲期</div>
+      <div style="font-size: 12px; color: var(--text-secondary, #888); line-height: 1.5;">中美贸易摩擦、多元供应商、安全库存</div>
+    </div>
+
+    <!-- Node 3 -->
+    <div style="position: relative; margin-bottom: 20px;">
+      <div style="position: absolute; left: -24px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--highlight-bg, #f5f3ff); border: 2px solid var(--accent, #6366f1);"></div>
+      <div style="font-size: 11px; color: var(--accent, #6366f1); font-weight: 600; margin-bottom: 2px;">2020-2023</div>
+      <div style="font-size: 14px; font-weight: 700; color: var(--text, #333); margin-bottom: 2px;">韧性觉醒期</div>
+      <div style="font-size: 12px; color: var(--text-secondary, #888); line-height: 1.5;">疫情冲击、芯片荒、区域化布局</div>
+    </div>
+
+    <!-- Node 4 (current, accent) -->
+    <div style="position: relative;">
+      <div style="position: absolute; left: -24px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent, #6366f1); border: 2px solid var(--accent, #6366f1);"></div>
+      <div style="font-size: 11px; color: var(--accent, #6366f1); font-weight: 700; margin-bottom: 2px;">2024-至今</div>
+      <div style="font-size: 14px; font-weight: 700; color: var(--accent, #6366f1); margin-bottom: 2px;">智能韧性时代</div>
+      <div style="font-size: 12px; color: var(--text-secondary, #888); line-height: 1.5;">数字孪生、AI 预测、弹性网络、实时可见</div>
+    </div>
+  </div>
+</div>

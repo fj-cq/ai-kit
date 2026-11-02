@@ -1,0 +1,83 @@
+<!--
+  模板：2x2 矩阵图 (matrix)
+  类型：P2 关系图
+  适用：双维度分类、策略象限
+-->
+<div class="chart-matrix" style="
+  padding: 24px;
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, #eaeaea);
+  border-radius: var(--radius, 12px);
+">
+  <div style="font-weight: 600; font-size: 14px; color: var(--text-secondary, #666); margin-bottom: 16px; text-align: center;">
+    供应链策略矩阵
+  </div>
+  <div style="max-width: 360px; margin: 0 auto;">
+    <!-- Y-axis label -->
+    <div style="display: flex; align-items: center; margin-bottom: 8px;">
+      <div style="writing-mode: vertical-lr; transform: rotate(180deg); font-size: 11px; color: var(--text-secondary, #888); margin-right: 8px; font-weight: 600;">韧性 &rarr;</div>
+      <div style="flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 4px;">
+        <!-- Top-Left: ideal -->
+        <div style="
+          padding: 14px 10px;
+          background: var(--highlight-bg, #f0fdf4);
+          border: 2px solid var(--accent, #6366f1);
+          border-radius: 8px;
+          text-align: center;
+          font-size: 12px;
+          line-height: 1.5;
+        ">
+          <div style="font-weight: 700; color: var(--accent, #6366f1); margin-bottom: 4px;">理想区</div>
+          <div style="color: var(--text-secondary, #888);">低成本 + 高韧性</div>
+          <div style="font-size: 11px; margin-top: 4px; color: var(--accent, #6366f1);">区域化生产</div>
+        </div>
+        <!-- Top-Right: invest -->
+        <div style="
+          padding: 14px 10px;
+          background: var(--tag-bg, #f0f0f0);
+          border: 1px solid var(--border, #e0e0e0);
+          border-radius: 8px;
+          text-align: center;
+          font-size: 12px;
+          line-height: 1.5;
+        ">
+          <div style="font-weight: 700; color: var(--text, #333); margin-bottom: 4px;">投资区</div>
+          <div style="color: var(--text-secondary, #888);">高成本 + 高韧性</div>
+          <div style="font-size: 11px; margin-top: 4px; color: var(--text-secondary, #888);">多源冗余</div>
+        </div>
+        <!-- Bottom-Left: lean -->
+        <div style="
+          padding: 14px 10px;
+          background: var(--tag-bg, #f0f0f0);
+          border: 1px solid var(--border, #e0e0e0);
+          border-radius: 8px;
+          text-align: center;
+          font-size: 12px;
+          line-height: 1.5;
+        ">
+          <div style="font-weight: 700; color: var(--text, #333); margin-bottom: 4px;">精益区</div>
+          <div style="color: var(--text-secondary, #888);">低成本 + 低韧性</div>
+          <div style="font-size: 11px; margin-top: 4px; color: #d97706;">单一供应商 &#9888;</div>
+        </div>
+        <!-- Bottom-Right: trap -->
+        <div style="
+          padding: 14px 10px;
+          background: #fef2f2;
+          border: 1px solid #fecaca;
+          border-radius: 8px;
+          text-align: center;
+          font-size: 12px;
+          line-height: 1.5;
+        ">
+          <div style="font-weight: 700; color: #dc2626; margin-bottom: 4px;">陷阱区</div>
+          <div style="color: var(--text-secondary, #888);">高成本 + 低韧性</div>
+          <div style="font-size: 11px; margin-top: 4px; color: #dc2626;">过度库存 &#10060;</div>
+        </div>
+      </div>
+    </div>
+    <!-- X-axis label -->
+    <div style="text-align: center; font-size: 11px; color: var(--text-secondary, #888); margin-top: 8px; font-weight: 600;">
+      成本 &rarr;
+    </div>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<!--
+  模板：饼图 (pie)
+  类型：P1 数据图表
+  适用：占比/份额展示
+  纯 CSS conic-gradient 实现，无 JS 依赖
+-->
+<div class="chart-pie" style="
+  padding: 24px;
+  background: var(--bg-card, #ffffff);
+  border: 1px solid var(--border, #eaeaea);
+  border-radius: var(--radius, 12px);
+">
+  <div style="font-weight: 600; font-size: 14px; color: var(--text-secondary, #666); margin-bottom: 20px; text-align: center;">
+    供应链中断原因分布
+  </div>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 32px; flex-wrap: wrap;">
+    <!-- Pie circle via conic-gradient -->
+    <div style="
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--accent, #6366f1) 0deg 126deg,
+        #94a3b8 126deg 216deg,
+        #cbd5e1 216deg 288deg,
+        #e2e8f0 288deg 360deg
+      );
+      flex-shrink: 0;
+    "></div>
+    <!-- Legend -->
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
+        <div style="width: 12px; height: 12px; border-radius: 3px; background: var(--accent, #6366f1); flex-shrink: 0;"></div>
+        <span style="color: var(--text, #333);">地缘政治 <strong>35%</strong></span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
+        <div style="width: 12px; height: 12px; border-radius: 3px; background: #94a3b8; flex-shrink: 0;"></div>
+        <span style="color: var(--text, #333);">自然灾害 <strong>25%</strong></span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
+        <div style="width: 12px; height: 12px; border-radius: 3px; background: #cbd5e1; flex-shrink: 0;"></div>
+        <span style="color: var(--text, #333);">供应商破产 <strong>20%</strong></span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 8px; font-size: 13px;">
+        <div style="width: 12px; height: 12px; border-radius: 3px; background: #e2e8f0; flex-shrink: 0;"></div>
+        <span style="color: var(--text, #333);">其他 <strong>20%</strong></span>
+      </div>
+    </div>
+  </div>
+</div>
