@@ -1,0 +1,306 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": "0.1.0"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 240
+    },
+    "description": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 2000
+    },
+    "layout": {
+      "enum": [
+        "auto",
+        "layered",
+        "linear",
+        "radial"
+      ]
+    },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4000
+          }
+        },
+        "required": [
+          "id",
+          "text"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 100
+    },
+    "boundaries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "evidence": {
+            "$ref": "#/$defs/evidence"
+          },
+          "kind": {
+            "enum": [
+              "system",
+              "trust",
+              "deployment"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "evidence",
+          "kind"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 12
+    },
+    "groups": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "evidence": {
+            "$ref": "#/$defs/evidence"
+          },
+          "boundary": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "evidence",
+          "boundary"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 12
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "evidence": {
+            "$ref": "#/$defs/evidence"
+          },
+          "group": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+          },
+          "kind": {
+            "enum": [
+              "component",
+              "external_system",
+              "capability",
+              "process_step"
+            ]
+          },
+          "responsibility": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          }
+        },
+        "required": [
+          "id",
+          "label",
+          "evidence",
+          "group",
+          "kind",
+          "responsibility"
+        ]
+      },
+      "minItems": 1,
+      "maxItems": 48
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+          },
+          "source": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+          },
+          "target": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+          },
+          "type": {
+            "enum": [
+              "calls",
+              "depends_on",
+              "data_flow",
+              "feedback",
+              "contains"
+            ]
+          },
+          "direction": {
+            "enum": [
+              "forward",
+              "bidirectional"
+            ]
+          },
+          "label": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "evidence": {
+            "$ref": "#/$defs/evidence"
+          }
+        },
+        "required": [
+          "id",
+          "source",
+          "target",
+          "type",
+          "direction",
+          "label",
+          "evidence"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 72
+    },
+    "questions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+          },
+          "text": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 240
+          },
+          "related_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+            },
+            "minItems": 0,
+            "maxItems": 100
+          }
+        },
+        "required": [
+          "id",
+          "text",
+          "related_ids"
+        ]
+      },
+      "minItems": 0,
+      "maxItems": 100
+    }
+  },
+  "required": [
+    "version",
+    "title",
+    "description",
+    "layout",
+    "sources",
+    "boundaries",
+    "groups",
+    "nodes",
+    "relations",
+    "questions"
+  ],
+  "$defs": {
+    "evidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "status": {
+          "enum": [
+            "explicit",
+            "inferred",
+            "unknown"
+          ]
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9_-]{0,47}(?![\\s\\S])"
+          },
+          "minItems": 0,
+          "maxItems": 20
+        },
+        "note": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 240
+        }
+      },
+      "required": [
+        "status",
+        "sources",
+        "note"
+      ]
+    }
+  }
+}

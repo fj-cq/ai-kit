@@ -1,0 +1,376 @@
+{
+  "version": "0.1.0",
+  "title": "数字展览平台：分发中心与周边接口",
+  "description": "面向集成开发人员，展示材料明确列出的八组、八个实体及分发中心与周边系统间的调用、数据发送和故障反馈。按中心辐射布局呈现；系统和部署边界未提供，所有组的 boundary 为 null，不推断服务部署方式。此模型用于独立 AI 建模与冒烟检查，不声称业务验收。",
+  "layout": "radial",
+  "sources": [
+    {
+      "id": "s1",
+      "text": "八组分别是分发、策展、存储、检索、展厅终端、语音、统计、管理。没有给出系统或部署边界。"
+    },
+    {
+      "id": "s2",
+      "text": "分发组含分发中心组件（分派展览资源请求），策展组含策展服务组件（维护展览条目），存储组含媒体库组件（存放媒体），检索组含检索服务组件（按关键词查询），展厅终端组含终端系统（外部系统，播放资源），语音组含语音服务组件（生成解说），统计组含统计服务组件（汇总访问），管理组含管理台组件（调整发布配置）。"
+    },
+    {
+      "id": "s3",
+      "text": "分发中心调用策展服务、媒体库、检索服务和语音服务，每次调用分别用于查询条目、读取资源、查找内容和生成解说。"
+    },
+    {
+      "id": "s4",
+      "text": "分发中心向终端系统发送展览资源，向统计服务发送访问事件。"
+    },
+    {
+      "id": "s5",
+      "text": "管理台调用分发中心更新配置；终端系统向分发中心反馈播放故障。"
+    },
+    {
+      "id": "s6",
+      "text": "没有说明服务部署方式，不能假定 Kubernetes 或消息队列。"
+    }
+  ],
+  "boundaries": [],
+  "groups": [
+    {
+      "id": "g_distribution",
+      "label": "分发",
+      "boundary": null,
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1",
+          "s2"
+        ],
+        "note": "材料明确列出分发组及其成员，未给出系统或部署边界。"
+      }
+    },
+    {
+      "id": "g_curation",
+      "label": "策展",
+      "boundary": null,
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1",
+          "s2"
+        ],
+        "note": "材料明确列出策展组及其成员，未给出系统或部署边界。"
+      }
+    },
+    {
+      "id": "g_storage",
+      "label": "存储",
+      "boundary": null,
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1",
+          "s2"
+        ],
+        "note": "材料明确列出存储组及其成员，未给出系统或部署边界。"
+      }
+    },
+    {
+      "id": "g_search",
+      "label": "检索",
+      "boundary": null,
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1",
+          "s2"
+        ],
+        "note": "材料明确列出检索组及其成员，未给出系统或部署边界。"
+      }
+    },
+    {
+      "id": "g_terminal",
+      "label": "展厅终端",
+      "boundary": null,
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1",
+          "s2"
+        ],
+        "note": "材料明确列出展厅终端组及其成员，未给出系统或部署边界。"
+      }
+    },
+    {
+      "id": "g_voice",
+      "label": "语音",
+      "boundary": null,
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1",
+          "s2"
+        ],
+        "note": "材料明确列出语音组及其成员，未给出系统或部署边界。"
+      }
+    },
+    {
+      "id": "g_statistics",
+      "label": "统计",
+      "boundary": null,
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1",
+          "s2"
+        ],
+        "note": "材料明确列出统计组及其成员，未给出系统或部署边界。"
+      }
+    },
+    {
+      "id": "g_management",
+      "label": "管理",
+      "boundary": null,
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1",
+          "s2"
+        ],
+        "note": "材料明确列出管理组及其成员，未给出系统或部署边界。"
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "n_distribution",
+      "label": "分发中心",
+      "group": "g_distribution",
+      "kind": "component",
+      "responsibility": "分派展览资源请求",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "材料明确给出分发中心的类型、所属组与职责。"
+      }
+    },
+    {
+      "id": "n_curation",
+      "label": "策展服务",
+      "group": "g_curation",
+      "kind": "component",
+      "responsibility": "维护展览条目",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "材料明确给出策展服务的类型、所属组与职责。"
+      }
+    },
+    {
+      "id": "n_storage",
+      "label": "媒体库",
+      "group": "g_storage",
+      "kind": "component",
+      "responsibility": "存放媒体",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "材料明确给出媒体库的类型、所属组与职责。"
+      }
+    },
+    {
+      "id": "n_search",
+      "label": "检索服务",
+      "group": "g_search",
+      "kind": "component",
+      "responsibility": "按关键词查询",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "材料明确给出检索服务的类型、所属组与职责。"
+      }
+    },
+    {
+      "id": "n_terminal",
+      "label": "终端系统",
+      "group": "g_terminal",
+      "kind": "external_system",
+      "responsibility": "播放资源",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "材料明确给出终端系统的类型、所属组与职责。"
+      }
+    },
+    {
+      "id": "n_voice",
+      "label": "语音服务",
+      "group": "g_voice",
+      "kind": "component",
+      "responsibility": "生成解说",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "材料明确给出语音服务的类型、所属组与职责。"
+      }
+    },
+    {
+      "id": "n_statistics",
+      "label": "统计服务",
+      "group": "g_statistics",
+      "kind": "component",
+      "responsibility": "汇总访问",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "材料明确给出统计服务的类型、所属组与职责。"
+      }
+    },
+    {
+      "id": "n_management",
+      "label": "管理台",
+      "group": "g_management",
+      "kind": "component",
+      "responsibility": "调整发布配置",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "材料明确给出管理台的类型、所属组与职责。"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "r_query_entries",
+      "source": "n_distribution",
+      "target": "n_curation",
+      "type": "calls",
+      "direction": "forward",
+      "label": "查询条目",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s3"
+        ],
+        "note": "材料明确说明该方向的查询条目关系；按发起方、数据来源或反馈方指向接收方。"
+      }
+    },
+    {
+      "id": "r_read_resources",
+      "source": "n_distribution",
+      "target": "n_storage",
+      "type": "calls",
+      "direction": "forward",
+      "label": "读取资源",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s3"
+        ],
+        "note": "材料明确说明该方向的读取资源关系；按发起方、数据来源或反馈方指向接收方。"
+      }
+    },
+    {
+      "id": "r_find_content",
+      "source": "n_distribution",
+      "target": "n_search",
+      "type": "calls",
+      "direction": "forward",
+      "label": "查找内容",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s3"
+        ],
+        "note": "材料明确说明该方向的查找内容关系；按发起方、数据来源或反馈方指向接收方。"
+      }
+    },
+    {
+      "id": "r_generate_narration",
+      "source": "n_distribution",
+      "target": "n_voice",
+      "type": "calls",
+      "direction": "forward",
+      "label": "生成解说",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s3"
+        ],
+        "note": "材料明确说明该方向的生成解说关系；按发起方、数据来源或反馈方指向接收方。"
+      }
+    },
+    {
+      "id": "r_send_resources",
+      "source": "n_distribution",
+      "target": "n_terminal",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "展览资源",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s4"
+        ],
+        "note": "材料明确说明该方向的展览资源关系；按发起方、数据来源或反馈方指向接收方。"
+      }
+    },
+    {
+      "id": "r_send_events",
+      "source": "n_distribution",
+      "target": "n_statistics",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "访问事件",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s4"
+        ],
+        "note": "材料明确说明该方向的访问事件关系；按发起方、数据来源或反馈方指向接收方。"
+      }
+    },
+    {
+      "id": "r_update_configuration",
+      "source": "n_management",
+      "target": "n_distribution",
+      "type": "calls",
+      "direction": "forward",
+      "label": "更新配置",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s5"
+        ],
+        "note": "材料明确说明该方向的更新配置关系；按发起方、数据来源或反馈方指向接收方。"
+      }
+    },
+    {
+      "id": "r_report_failure",
+      "source": "n_terminal",
+      "target": "n_distribution",
+      "type": "feedback",
+      "direction": "forward",
+      "label": "播放故障",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s5"
+        ],
+        "note": "材料明确说明该方向的播放故障关系；按发起方、数据来源或反馈方指向接收方。"
+      }
+    }
+  ],
+  "questions": []
+}

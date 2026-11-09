@@ -1,0 +1,16 @@
+{
+  "version": "0.2.0-draft",
+  "sha256": "8284882323cf27534d8a29141cd6bc8a3713fa3a3907d01f972b87e399a71987",
+  "cases": [],
+  "method": "Workflow update; current image-first prompt has not repeated the independent fresh-context modeling evaluation. Historical evidence remains under previous.",
+  "previous": {
+    "version": "0.1.0-draft",
+    "sha256": "4a4dac9385c3b520c1fff0369700c51e3657f1a4f5be0a9e23a1e13834aa109d",
+    "cases": [
+      "autoloop",
+      "supply-chain",
+      "museum"
+    ],
+    "method": "Independent fresh-context agent for each input; source-only modeling; no reference model supplied"
+  }
+}

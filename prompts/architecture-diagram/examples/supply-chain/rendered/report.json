@@ -1,0 +1,398 @@
+{
+  "version": "0.1.0-draft",
+  "model_sha256": "a39278b29cfaa793b6e1ddf75b8fc9d01057c34fcfb77d3981b12929ba0bc66d",
+  "nodes": 7,
+  "groups": 6,
+  "relations": 8,
+  "rendered_relations": 8,
+  "layout_modes": [
+    "layered",
+    "layered"
+  ],
+  "warnings": [
+    {
+      "code": "edge-badge-in-ledger-only",
+      "id": "r_approval"
+    },
+    {
+      "code": "edge-badge-in-ledger-only",
+      "id": "r_pending"
+    }
+  ],
+  "semantic_acceptance": "pending-human-review",
+  "browser_acceptance": "not-assessed-by-renderer",
+  "geometry": {
+    "nodes": {
+      "n_warehouse": {
+        "x": 110,
+        "y": 268,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "仓储系统"
+        ],
+        "body": [
+          "执行获批指令"
+        ]
+      },
+      "n_console": {
+        "x": 1370,
+        "y": 751,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "审批台"
+        ],
+        "body": [
+          "展示建议"
+        ]
+      },
+      "n_approval": {
+        "x": 1370,
+        "y": 878,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "人工批准"
+        ],
+        "body": [
+          "处理待审批建议并反馈批准结果"
+        ]
+      },
+      "n_collector": {
+        "x": 110,
+        "y": 751,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "采集器"
+        ],
+        "body": [
+          "接收销售记录"
+        ]
+      },
+      "n_engine": {
+        "x": 950,
+        "y": 751,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "建议引擎"
+        ],
+        "body": [
+          "生成补货建议"
+        ]
+      },
+      "n_predictor": {
+        "x": 530,
+        "y": 751,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "预测服务"
+        ],
+        "body": [
+          "估计需求"
+        ]
+      },
+      "n_ledger": {
+        "x": 110,
+        "y": 1241,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "库存账本"
+        ],
+        "body": [
+          "提供可用库存"
+        ]
+      }
+    },
+    "groups": {
+      "g_fulfill": {
+        "x": 80,
+        "y": 160,
+        "w": 320,
+        "h": 243,
+        "header_h": 58,
+        "lines": [
+          "外部履约"
+        ]
+      },
+      "g_approve": {
+        "x": 1340,
+        "y": 643,
+        "w": 320,
+        "h": 370,
+        "header_h": 58,
+        "lines": [
+          "审批"
+        ]
+      },
+      "g_collect": {
+        "x": 80,
+        "y": 643,
+        "w": 320,
+        "h": 243,
+        "header_h": 58,
+        "lines": [
+          "采集"
+        ]
+      },
+      "g_decide": {
+        "x": 920,
+        "y": 643,
+        "w": 320,
+        "h": 243,
+        "header_h": 58,
+        "lines": [
+          "决策"
+        ]
+      },
+      "g_predict": {
+        "x": 500,
+        "y": 643,
+        "w": 320,
+        "h": 243,
+        "header_h": 58,
+        "lines": [
+          "预测"
+        ]
+      },
+      "g_stock": {
+        "x": 80,
+        "y": 1133,
+        "w": 320,
+        "h": 243,
+        "header_h": 58,
+        "lines": [
+          "库存"
+        ]
+      }
+    },
+    "boundaries": {
+      "b_platform": {
+        "x": 52,
+        "y": 563,
+        "w": 1636,
+        "h": 841
+      }
+    },
+    "routes": {
+      "r_approval": {
+        "points": [
+          [
+            1493.0,
+            878
+          ],
+          [
+            1493.0,
+            842
+          ]
+        ],
+        "number": 1,
+        "badge": null
+      },
+      "r_demand": {
+        "points": [
+          [
+            790,
+            796.5
+          ],
+          [
+            812,
+            796.5
+          ],
+          [
+            812,
+            789.5
+          ],
+          [
+            950,
+            789.5
+          ]
+        ],
+        "number": 2,
+        "badge": {
+          "x": 862.0,
+          "y": 778.5,
+          "w": 38,
+          "h": 22
+        }
+      },
+      "r_execute": {
+        "points": [
+          [
+            1370,
+            789.5
+          ],
+          [
+            1348,
+            789.5
+          ],
+          [
+            1348,
+            707
+          ],
+          [
+            1700,
+            707
+          ],
+          [
+            1700,
+            313.5
+          ],
+          [
+            370,
+            313.5
+          ]
+        ],
+        "number": 3,
+        "badge": {
+          "x": 1016.0,
+          "y": 302.5,
+          "w": 38,
+          "h": 22
+        }
+      },
+      "r_pending": {
+        "points": [
+          [
+            1507.0,
+            842
+          ],
+          [
+            1507.0,
+            878
+          ]
+        ],
+        "number": 4,
+        "badge": null
+      },
+      "r_proposal": {
+        "points": [
+          [
+            1210,
+            796.5
+          ],
+          [
+            1232,
+            796.5
+          ],
+          [
+            1232,
+            803.5
+          ],
+          [
+            1370,
+            803.5
+          ]
+        ],
+        "number": 5,
+        "badge": {
+          "x": 1282.0,
+          "y": 792.5,
+          "w": 38,
+          "h": 22
+        }
+      },
+      "r_result": {
+        "points": [
+          [
+            240.0,
+            359
+          ],
+          [
+            240.0,
+            381
+          ],
+          [
+            40,
+            381
+          ],
+          [
+            40,
+            1219
+          ],
+          [
+            240.0,
+            1219
+          ],
+          [
+            240.0,
+            1241
+          ]
+        ],
+        "number": 6,
+        "badge": {
+          "x": 21.0,
+          "y": 789.0,
+          "w": 38,
+          "h": 22
+        }
+      },
+      "r_sales": {
+        "points": [
+          [
+            370,
+            796.5
+          ],
+          [
+            530,
+            796.5
+          ]
+        ],
+        "number": 7,
+        "badge": {
+          "x": 431.0,
+          "y": 785.5,
+          "w": 38,
+          "h": 22
+        }
+      },
+      "r_stock": {
+        "points": [
+          [
+            370,
+            1286.5
+          ],
+          [
+            928,
+            1286.5
+          ],
+          [
+            928,
+            803.5
+          ],
+          [
+            950,
+            803.5
+          ]
+        ],
+        "number": 8,
+        "badge": {
+          "x": 630.0,
+          "y": 1275.5,
+          "w": 38,
+          "h": 22
+        }
+      }
+    },
+    "width": 1780,
+    "height": 1464,
+    "modes": [
+      "layered",
+      "layered"
+    ],
+    "warnings": [
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_approval"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_pending"
+      }
+    ]
+  }
+}

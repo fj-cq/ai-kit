@@ -1,0 +1,293 @@
+{
+  "version": "0.1.0",
+  "title": "Autoloop 自动任务平台控制与结果反馈",
+  "description": "依据虚构测试材料展示自动任务平台的三个模块组、六个组件及调用、数据返回和失败反馈。面向平台开发人员。未提供认证机制和部署实现，本图不补充这些内容，且不声称已通过业务或浏览器验收。",
+  "layout": "auto",
+  "sources": [
+    {
+      "id": "s1",
+      "text": "S1 系统有三组：任务接入、执行、质量反馈。三组都在“自动任务平台”系统边界内。"
+    },
+    {
+      "id": "s2",
+      "text": "S2 任务接入组包含任务 API（接收任务请求）和计划器（拆解并调度任务）。执行组包含工作器（执行步骤）和工具适配器（调用受控工具）。质量反馈组包含检查器（核对执行结果）和结果库（存储检查记录）。上述六项都是组件。"
+    },
+    {
+      "id": "s3",
+      "text": "S3 任务 API 调用计划器；计划器调用工作器；工作器调用工具适配器。"
+    },
+    {
+      "id": "s4",
+      "text": "S4 工具适配器向工作器返回执行数据；工作器把执行结果传给检查器；检查器把检查记录传给结果库。"
+    },
+    {
+      "id": "s5",
+      "text": "S5 检查器向计划器反馈失败原因；结果库向任务 API 提供已完成任务结果。"
+    },
+    {
+      "id": "s6",
+      "text": "S6 不涉及真实产品或公司的实现；未说明用户认证机制，不要补画认证服务。"
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "b_platform",
+      "label": "自动任务平台",
+      "kind": "system",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确三组均位于自动任务平台系统边界内。"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "g_intake",
+      "label": "任务接入",
+      "boundary": "b_platform",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确列出此模块组及所属系统边界。"
+      }
+    },
+    {
+      "id": "g_execution",
+      "label": "执行",
+      "boundary": "b_platform",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确列出此模块组及所属系统边界。"
+      }
+    },
+    {
+      "id": "g_quality",
+      "label": "质量反馈",
+      "boundary": "b_platform",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确列出此模块组及所属系统边界。"
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "n_api",
+      "label": "任务 API",
+      "group": "g_intake",
+      "kind": "component",
+      "responsibility": "接收任务请求",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该组件、职责及所属模块组，并说明六项均为组件。"
+      }
+    },
+    {
+      "id": "n_planner",
+      "label": "计划器",
+      "group": "g_intake",
+      "kind": "component",
+      "responsibility": "拆解并调度任务",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该组件、职责及所属模块组，并说明六项均为组件。"
+      }
+    },
+    {
+      "id": "n_worker",
+      "label": "工作器",
+      "group": "g_execution",
+      "kind": "component",
+      "responsibility": "执行步骤",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该组件、职责及所属模块组，并说明六项均为组件。"
+      }
+    },
+    {
+      "id": "n_adapter",
+      "label": "工具适配器",
+      "group": "g_execution",
+      "kind": "component",
+      "responsibility": "调用受控工具",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该组件、职责及所属模块组，并说明六项均为组件。"
+      }
+    },
+    {
+      "id": "n_checker",
+      "label": "检查器",
+      "group": "g_quality",
+      "kind": "component",
+      "responsibility": "核对执行结果",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该组件、职责及所属模块组，并说明六项均为组件。"
+      }
+    },
+    {
+      "id": "n_store",
+      "label": "结果库",
+      "group": "g_quality",
+      "kind": "component",
+      "responsibility": "存储检查记录",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该组件、职责及所属模块组，并说明六项均为组件。"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "r_api_planner",
+      "source": "n_api",
+      "target": "n_planner",
+      "type": "calls",
+      "direction": "forward",
+      "label": "调用计划器",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s3"
+        ],
+        "note": "S3 明确任务 API 调用计划器，方向为发起方到被调用方。"
+      }
+    },
+    {
+      "id": "r_planner_worker",
+      "source": "n_planner",
+      "target": "n_worker",
+      "type": "calls",
+      "direction": "forward",
+      "label": "调用工作器",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s3"
+        ],
+        "note": "S3 明确计划器调用工作器。"
+      }
+    },
+    {
+      "id": "r_worker_adapter",
+      "source": "n_worker",
+      "target": "n_adapter",
+      "type": "calls",
+      "direction": "forward",
+      "label": "调用工具适配器",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s3"
+        ],
+        "note": "S3 明确工作器调用工具适配器。"
+      }
+    },
+    {
+      "id": "r_adapter_worker",
+      "source": "n_adapter",
+      "target": "n_worker",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "返回执行数据",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s4"
+        ],
+        "note": "S4 明确工具适配器向工作器返回执行数据，数据方向与调用方向相反，单独建模。"
+      }
+    },
+    {
+      "id": "r_worker_checker",
+      "source": "n_worker",
+      "target": "n_checker",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "传递执行结果",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s4"
+        ],
+        "note": "S4 明确工作器把执行结果传给检查器。"
+      }
+    },
+    {
+      "id": "r_checker_store",
+      "source": "n_checker",
+      "target": "n_store",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "传递检查记录",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s4"
+        ],
+        "note": "S4 明确检查器把检查记录传给结果库。"
+      }
+    },
+    {
+      "id": "r_checker_planner",
+      "source": "n_checker",
+      "target": "n_planner",
+      "type": "feedback",
+      "direction": "forward",
+      "label": "反馈失败原因",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s5"
+        ],
+        "note": "S5 明确检查器向计划器反馈失败原因。"
+      }
+    },
+    {
+      "id": "r_store_api",
+      "source": "n_store",
+      "target": "n_api",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "提供已完成任务结果",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s5"
+        ],
+        "note": "S5 明确结果库向任务 API 提供已完成任务结果，未由此推断任务 API 主动查询结果库。"
+      }
+    }
+  ],
+  "questions": []
+}

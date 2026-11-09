@@ -1,0 +1,356 @@
+{
+  "version": "0.1.0-draft",
+  "model_sha256": "22b66a9d797ab7510c34695c14df4dc19cb814d1210bf90fa001925c9b6e3482",
+  "nodes": 6,
+  "groups": 3,
+  "relations": 8,
+  "rendered_relations": 8,
+  "layout_modes": [
+    "layered"
+  ],
+  "warnings": [
+    {
+      "code": "edge-crossings",
+      "pairs": [
+        [
+          "r_checker_planner",
+          "r_store_api"
+        ]
+      ]
+    },
+    {
+      "code": "edge-badge-in-ledger-only",
+      "id": "r_adapter_worker"
+    },
+    {
+      "code": "edge-badge-in-ledger-only",
+      "id": "r_worker_adapter"
+    }
+  ],
+  "semantic_acceptance": "pending-human-review",
+  "browser_acceptance": "not-assessed-by-renderer",
+  "geometry": {
+    "nodes": {
+      "n_worker": {
+        "x": 950,
+        "y": 288,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "工作器"
+        ],
+        "body": [
+          "执行步骤"
+        ]
+      },
+      "n_adapter": {
+        "x": 950,
+        "y": 415,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "工具适配器"
+        ],
+        "body": [
+          "调用受控工具"
+        ]
+      },
+      "n_api": {
+        "x": 530,
+        "y": 288,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "任务 API"
+        ],
+        "body": [
+          "接收任务请求"
+        ]
+      },
+      "n_planner": {
+        "x": 530,
+        "y": 415,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "计划器"
+        ],
+        "body": [
+          "拆解并调度任务"
+        ]
+      },
+      "n_checker": {
+        "x": 110,
+        "y": 288,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "检查器"
+        ],
+        "body": [
+          "核对执行结果"
+        ]
+      },
+      "n_store": {
+        "x": 110,
+        "y": 415,
+        "w": 260,
+        "h": 91,
+        "lines": [
+          "结果库"
+        ],
+        "body": [
+          "存储检查记录"
+        ]
+      }
+    },
+    "groups": {
+      "g_execution": {
+        "x": 920,
+        "y": 180,
+        "w": 320,
+        "h": 370,
+        "header_h": 58,
+        "lines": [
+          "执行"
+        ]
+      },
+      "g_intake": {
+        "x": 500,
+        "y": 180,
+        "w": 320,
+        "h": 370,
+        "header_h": 58,
+        "lines": [
+          "任务接入"
+        ]
+      },
+      "g_quality": {
+        "x": 80,
+        "y": 180,
+        "w": 320,
+        "h": 370,
+        "header_h": 58,
+        "lines": [
+          "质量反馈"
+        ]
+      }
+    },
+    "boundaries": {
+      "b_platform": {
+        "x": 52,
+        "y": 100,
+        "w": 1216,
+        "h": 478
+      }
+    },
+    "routes": {
+      "r_adapter_worker": {
+        "points": [
+          [
+            1073.0,
+            415
+          ],
+          [
+            1073.0,
+            379
+          ]
+        ],
+        "number": 1,
+        "badge": null
+      },
+      "r_api_planner": {
+        "points": [
+          [
+            660.0,
+            379
+          ],
+          [
+            660.0,
+            415
+          ]
+        ],
+        "number": 2,
+        "badge": {
+          "x": 641.0,
+          "y": 386.0,
+          "w": 38,
+          "h": 22
+        }
+      },
+      "r_checker_planner": {
+        "points": [
+          [
+            370,
+            340.5
+          ],
+          [
+            392,
+            340.5
+          ],
+          [
+            392,
+            460.5
+          ],
+          [
+            530,
+            460.5
+          ]
+        ],
+        "number": 3,
+        "badge": {
+          "x": 442.0,
+          "y": 449.5,
+          "w": 38,
+          "h": 22
+        }
+      },
+      "r_checker_store": {
+        "points": [
+          [
+            240.0,
+            379
+          ],
+          [
+            240.0,
+            415
+          ]
+        ],
+        "number": 4,
+        "badge": {
+          "x": 221.0,
+          "y": 386.0,
+          "w": 38,
+          "h": 22
+        }
+      },
+      "r_planner_worker": {
+        "points": [
+          [
+            790,
+            460.5
+          ],
+          [
+            812,
+            460.5
+          ],
+          [
+            812,
+            340.5
+          ],
+          [
+            950,
+            340.5
+          ]
+        ],
+        "number": 5,
+        "badge": {
+          "x": 862.0,
+          "y": 329.5,
+          "w": 38,
+          "h": 22
+        }
+      },
+      "r_store_api": {
+        "points": [
+          [
+            370,
+            460.5
+          ],
+          [
+            382,
+            460.5
+          ],
+          [
+            382,
+            333.5
+          ],
+          [
+            530,
+            333.5
+          ]
+        ],
+        "number": 6,
+        "badge": {
+          "x": 437.0,
+          "y": 322.5,
+          "w": 38,
+          "h": 22
+        }
+      },
+      "r_worker_adapter": {
+        "points": [
+          [
+            1087.0,
+            379
+          ],
+          [
+            1087.0,
+            415
+          ]
+        ],
+        "number": 7,
+        "badge": null
+      },
+      "r_worker_checker": {
+        "points": [
+          [
+            950,
+            326.5
+          ],
+          [
+            928,
+            326.5
+          ],
+          [
+            928,
+            276
+          ],
+          [
+            392,
+            276
+          ],
+          [
+            392,
+            326.5
+          ],
+          [
+            370,
+            326.5
+          ]
+        ],
+        "number": 8,
+        "badge": {
+          "x": 909.0,
+          "y": 290.25,
+          "w": 38,
+          "h": 22
+        }
+      }
+    },
+    "width": 1348,
+    "height": 638,
+    "modes": [
+      "layered"
+    ],
+    "warnings": [
+      {
+        "code": "edge-crossings",
+        "pairs": [
+          [
+            "r_checker_planner",
+            "r_store_api"
+          ]
+        ]
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_adapter_worker"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_worker_adapter"
+      }
+    ]
+  }
+}

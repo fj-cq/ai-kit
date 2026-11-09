@@ -1,0 +1,69 @@
+{
+  "autoloop": {
+    "groups": 3,
+    "nodes": 6,
+    "relations": 8,
+    "rendered_relations": 8,
+    "warnings": [
+      {
+        "code": "edge-crossings",
+        "pairs": [
+          [
+            "r_checker_planner",
+            "r_store_api"
+          ]
+        ]
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_adapter_worker"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_worker_adapter"
+      }
+    ]
+  },
+  "supply-chain": {
+    "groups": 6,
+    "nodes": 7,
+    "relations": 8,
+    "rendered_relations": 8,
+    "warnings": [
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_approval"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_pending"
+      }
+    ]
+  },
+  "museum": {
+    "groups": 8,
+    "nodes": 8,
+    "relations": 8,
+    "rendered_relations": 8,
+    "warnings": [
+      {
+        "code": "edge-crossings",
+        "pairs": [
+          [
+            "r_report_failure",
+            "r_send_resources"
+          ]
+        ]
+      },
+      {
+        "code": "shared-edge-segments",
+        "pairs": [
+          [
+            "r_report_failure",
+            "r_send_resources"
+          ]
+        ]
+      }
+    ]
+  }
+}

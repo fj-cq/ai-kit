@@ -1,0 +1,38 @@
+[
+  {
+    "case": "autoloop",
+    "relations": 8,
+    "overflow": [],
+    "javascript_errors": [],
+    "zoom_works": true,
+    "mobile": {
+      "pageWidth": 390,
+      "viewport": 390
+    },
+    "screenshot": "autoloop-desktop.png"
+  },
+  {
+    "case": "supply-chain",
+    "relations": 8,
+    "overflow": [],
+    "javascript_errors": [],
+    "zoom_works": true,
+    "mobile": {
+      "pageWidth": 390,
+      "viewport": 390
+    },
+    "screenshot": "supply-chain-desktop.png"
+  },
+  {
+    "case": "museum",
+    "relations": 8,
+    "overflow": [],
+    "javascript_errors": [],
+    "zoom_works": true,
+    "mobile": {
+      "pageWidth": 390,
+      "viewport": 390
+    },
+    "screenshot": "museum-desktop.png"
+  }
+]

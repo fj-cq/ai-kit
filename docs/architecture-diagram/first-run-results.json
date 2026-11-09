@@ -1,0 +1,175 @@
+{
+  "autoloop": {
+    "groups": 3,
+    "nodes": 6,
+    "relations": 8,
+    "rendered_relations": 8,
+    "warnings": [
+      {
+        "code": "edge-crossings",
+        "pairs": [
+          [
+            "r_adapter_worker",
+            "r_worker_adapter"
+          ],
+          [
+            "r_checker_planner",
+            "r_checker_store"
+          ],
+          [
+            "r_checker_store",
+            "r_store_api"
+          ],
+          [
+            "r_planner_worker",
+            "r_worker_checker"
+          ],
+          [
+            "r_store_api",
+            "r_worker_checker"
+          ],
+          [
+            "r_worker_adapter",
+            "r_worker_checker"
+          ]
+        ]
+      },
+      {
+        "code": "shared-edge-segments",
+        "pairs": [
+          [
+            "r_adapter_worker",
+            "r_planner_worker"
+          ],
+          [
+            "r_api_planner",
+            "r_checker_planner"
+          ]
+        ]
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_adapter_worker"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_api_planner"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_checker_planner"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_checker_store"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_planner_worker"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_store_api"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_worker_adapter"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_worker_checker"
+      }
+    ]
+  },
+  "supply-chain": {
+    "groups": 6,
+    "nodes": 7,
+    "relations": 8,
+    "rendered_relations": 8,
+    "warnings": [
+      {
+        "code": "edge-crossings",
+        "pairs": [
+          [
+            "r_approval",
+            "r_execute"
+          ],
+          [
+            "r_approval",
+            "r_pending"
+          ],
+          [
+            "r_demand",
+            "r_stock"
+          ],
+          [
+            "r_execute",
+            "r_result"
+          ]
+        ]
+      },
+      {
+        "code": "shared-edge-segments",
+        "pairs": [
+          [
+            "r_approval",
+            "r_execute"
+          ],
+          [
+            "r_execute",
+            "r_pending"
+          ]
+        ]
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_approval"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_pending"
+      }
+    ]
+  },
+  "museum": {
+    "groups": 8,
+    "nodes": 8,
+    "relations": 8,
+    "rendered_relations": 8,
+    "warnings": [
+      {
+        "code": "edge-crossings",
+        "pairs": [
+          [
+            "r_generate_narration",
+            "r_read_resources"
+          ],
+          [
+            "r_generate_narration",
+            "r_send_resources"
+          ],
+          [
+            "r_query_entries",
+            "r_update_configuration"
+          ],
+          [
+            "r_read_resources",
+            "r_report_failure"
+          ]
+        ]
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_query_entries"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_read_resources"
+      },
+      {
+        "code": "edge-badge-in-ledger-only",
+        "id": "r_send_events"
+      }
+    ]
+  }
+}

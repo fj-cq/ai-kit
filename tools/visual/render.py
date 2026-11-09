@@ -36,6 +36,7 @@ def themed_svg(svg,theme):
 def main():
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--theme',default='white')
+    parser.add_argument('--architecture',action='store_true',help='Render an architecture model to a new export directory')
     parser.add_argument('--list-themes',action='store_true')
     args,rest=parser.parse_known_args()
     themes=json.loads((ROOT/'themes/themes.json').read_text())['themes']
@@ -45,6 +46,10 @@ def main():
     matches=[t for t in themes if t['id']==args.theme or t['name']==args.theme]
     if len(matches)!=1: parser.error('Unknown theme; use --list-themes')
     theme=matches[0]
+    if args.architecture:
+        sys.path.insert(0,str(ROOT/'renderers'))
+        from architecture.render import main as architecture_main
+        return architecture_main(rest+['--theme',args.theme])
     original=engine.render_case
     engine.render_case=lambda case: themed_svg(original(case),theme)
     engine.STYLE=recolor_css(engine.STYLE,palette(theme))

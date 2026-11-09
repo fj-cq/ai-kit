@@ -1,0 +1,353 @@
+{
+  "version": "0.1.0",
+  "title": "补货建议系统逻辑架构",
+  "description": "面向系统集成人员，解释销售记录、库存与需求估计如何形成补货建议，经人工批准后提交仓储系统执行，并反馈执行结果。仅依据虚构测试材料；建议引擎是否直接调用仓储系统仍待确认，未声称已验收。",
+  "layout": "auto",
+  "sources": [
+    {
+      "id": "s1",
+      "text": "六个模块组：采集、库存、预测、决策、审批、外部履约。前五组属于“建议平台”系统边界；外部履约无已知边界。"
+    },
+    {
+      "id": "s2",
+      "text": "采集组有采集器组件，职责是接收销售记录。库存组有库存账本组件，职责是提供可用库存。预测组有预测服务组件，职责是估计需求。决策组有建议引擎组件，职责是生成补货建议。审批组有审批台组件，职责是展示建议，并包含“人工批准”处理步骤。外部履约组只有仓储系统，属于外部系统，职责是执行获批指令。"
+    },
+    {
+      "id": "s3",
+      "text": "采集器把销售记录传给预测服务；库存账本把可用库存传给建议引擎；预测服务把需求估计传给建议引擎。"
+    },
+    {
+      "id": "s4",
+      "text": "建议引擎把建议传给审批台；审批台把待审批建议传给人工批准步骤；人工批准步骤把批准结果反馈给审批台。"
+    },
+    {
+      "id": "s5",
+      "text": "审批台调用仓储系统提交获批指令；仓储系统向库存账本反馈执行结果。"
+    },
+    {
+      "id": "s6",
+      "text": "材料没有说明建议引擎是否会直接调用仓储系统。这是待确认问题，不要画成事实关系。"
+    }
+  ],
+  "boundaries": [
+    {
+      "id": "b_platform",
+      "label": "建议平台",
+      "kind": "system",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确前五个模块组属于建议平台系统边界。"
+      }
+    }
+  ],
+  "groups": [
+    {
+      "id": "g_collect",
+      "label": "采集",
+      "boundary": "b_platform",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确列出该模块组，并归属建议平台。"
+      }
+    },
+    {
+      "id": "g_stock",
+      "label": "库存",
+      "boundary": "b_platform",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确列出该模块组，并归属建议平台。"
+      }
+    },
+    {
+      "id": "g_predict",
+      "label": "预测",
+      "boundary": "b_platform",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确列出该模块组，并归属建议平台。"
+      }
+    },
+    {
+      "id": "g_decide",
+      "label": "决策",
+      "boundary": "b_platform",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确列出该模块组，并归属建议平台。"
+      }
+    },
+    {
+      "id": "g_approve",
+      "label": "审批",
+      "boundary": "b_platform",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确列出该模块组，并归属建议平台。"
+      }
+    },
+    {
+      "id": "g_fulfill",
+      "label": "外部履约",
+      "boundary": null,
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s1"
+        ],
+        "note": "S1 明确列出该模块组；外部履约无已知边界。"
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "n_collector",
+      "label": "采集器",
+      "group": "g_collect",
+      "kind": "component",
+      "responsibility": "接收销售记录",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该节点的类型、模块组归属及职责。"
+      }
+    },
+    {
+      "id": "n_ledger",
+      "label": "库存账本",
+      "group": "g_stock",
+      "kind": "component",
+      "responsibility": "提供可用库存",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该节点的类型、模块组归属及职责。"
+      }
+    },
+    {
+      "id": "n_predictor",
+      "label": "预测服务",
+      "group": "g_predict",
+      "kind": "component",
+      "responsibility": "估计需求",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该节点的类型、模块组归属及职责。"
+      }
+    },
+    {
+      "id": "n_engine",
+      "label": "建议引擎",
+      "group": "g_decide",
+      "kind": "component",
+      "responsibility": "生成补货建议",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该节点的类型、模块组归属及职责。"
+      }
+    },
+    {
+      "id": "n_console",
+      "label": "审批台",
+      "group": "g_approve",
+      "kind": "component",
+      "responsibility": "展示建议",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该节点的类型、模块组归属及职责。"
+      }
+    },
+    {
+      "id": "n_approval",
+      "label": "人工批准",
+      "group": "g_approve",
+      "kind": "process_step",
+      "responsibility": "处理待审批建议并反馈批准结果",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2",
+          "s4"
+        ],
+        "note": "S2 明确将人工批准列为审批组内处理步骤；S4 明确它接收待审批建议并反馈批准结果。"
+      }
+    },
+    {
+      "id": "n_warehouse",
+      "label": "仓储系统",
+      "group": "g_fulfill",
+      "kind": "external_system",
+      "responsibility": "执行获批指令",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s2"
+        ],
+        "note": "S2 明确给出该节点的类型、模块组归属及职责。"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "id": "r_sales",
+      "source": "n_collector",
+      "target": "n_predictor",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "销售记录",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s3"
+        ],
+        "note": "材料明确说明该内容由起点传给终点。"
+      }
+    },
+    {
+      "id": "r_stock",
+      "source": "n_ledger",
+      "target": "n_engine",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "可用库存",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s3"
+        ],
+        "note": "材料明确说明该内容由起点传给终点。"
+      }
+    },
+    {
+      "id": "r_demand",
+      "source": "n_predictor",
+      "target": "n_engine",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "需求估计",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s3"
+        ],
+        "note": "材料明确说明该内容由起点传给终点。"
+      }
+    },
+    {
+      "id": "r_proposal",
+      "source": "n_engine",
+      "target": "n_console",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "补货建议",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s4"
+        ],
+        "note": "材料明确说明该内容由起点传给终点。"
+      }
+    },
+    {
+      "id": "r_pending",
+      "source": "n_console",
+      "target": "n_approval",
+      "type": "data_flow",
+      "direction": "forward",
+      "label": "待审批建议",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s4"
+        ],
+        "note": "材料明确说明该内容由起点传给终点。"
+      }
+    },
+    {
+      "id": "r_approval",
+      "source": "n_approval",
+      "target": "n_console",
+      "type": "feedback",
+      "direction": "forward",
+      "label": "批准结果",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s4"
+        ],
+        "note": "材料明确说明该结果由起点反馈给终点。"
+      }
+    },
+    {
+      "id": "r_execute",
+      "source": "n_console",
+      "target": "n_warehouse",
+      "type": "calls",
+      "direction": "forward",
+      "label": "提交获批指令",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s5"
+        ],
+        "note": "材料明确说明审批台调用仓储系统提交获批指令。"
+      }
+    },
+    {
+      "id": "r_result",
+      "source": "n_warehouse",
+      "target": "n_ledger",
+      "type": "feedback",
+      "direction": "forward",
+      "label": "执行结果",
+      "evidence": {
+        "status": "explicit",
+        "sources": [
+          "s5"
+        ],
+        "note": "材料明确说明该结果由起点反馈给终点。"
+      }
+    }
+  ],
+  "questions": [
+    {
+      "id": "q_direct_execution",
+      "text": "S6 未说明建议引擎是否会直接调用仓储系统；如存在，请确认调用条件、内容及其与审批台调用的分工。",
+      "related_ids": [
+        "n_engine",
+        "n_warehouse"
+      ]
+    }
+  ]
+}
